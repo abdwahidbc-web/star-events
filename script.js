@@ -11,6 +11,21 @@ const observer = new IntersectionObserver((entries) => {
 const hiddenElements = document.querySelectorAll('.fade-in');
 hiddenElements.forEach((el) => observer.observe(el));
 
+// --- Mobile Menu Toggle ---
+const mobileMenuBtn = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('nav');
+
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        // Toggle icon between hamburger and close
+        if (navMenu.classList.contains('active')) {
+            mobileMenuBtn.innerHTML = '✕';
+        } else {
+            mobileMenuBtn.innerHTML = '☰';
+        }
+    });
+}
 
 // --- 2. Firebase Form Logic (Only runs on the contact page) ---
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
